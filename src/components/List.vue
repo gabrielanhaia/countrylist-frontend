@@ -31,7 +31,9 @@
             <table class="table table-striped table-bordered">
                 <thead>
                 <tr>
-                    <th>Código (Code)</th>
+                    <th v-on:click="changeOrder" class="link-order"><i class="fa fa-sort"></i>&nbsp;&nbsp;&nbsp;Código
+                        (Code)
+                    </th>
                     <th>Nome (Name)</th>
                 </tr>
                 </thead>
@@ -40,7 +42,6 @@
                     <td>{{country.code}}</td>
                     <td>{{country.name}}</td>
                 </tr>
-
                 </tbody>
             </table>
         </div>
@@ -58,13 +59,13 @@
         data() {
             return {
                 countries: [],
-                buscar: ''
+                orderDesc: 0
             }
         },
         methods: {
             loadCountries() {
                 axios.get(
-                    'http://localhost:8000/api/country',
+                    'http://localhost:8000/api/country?order_descending=' + this.orderDesc,
                     {
                         headers: {
                             'Access-Control-Allow-Origin': '*',
@@ -77,6 +78,15 @@
                 }, (err) => {
                     console.log(err)
                 })
+            },
+            changeOrder() {
+                if (this.orderDesc == 0) {
+                    this.orderDesc = 1;
+                } else {
+                    this.orderDesc = 0;
+                }
+
+                this.loadCountries()
             }
         },
         mounted() {
@@ -86,4 +96,7 @@
 </script>
 
 <style>
+    .link-order {
+        cursor: grabbing;
+    }
 </style>

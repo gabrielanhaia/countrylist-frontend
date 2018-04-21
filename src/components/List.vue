@@ -63,9 +63,9 @@
             }
         },
         methods: {
-            loadCountries() {
+            loadCountries(orderDesc) {
                 axios.get(
-                    'http://localhost:8000/api/country?order_descending=' + this.orderDesc,
+                    'http://localhost:8000/api/country?order_descending=' + orderDesc,
                     {
                         headers: {
                             'Access-Control-Allow-Origin': '*',
@@ -86,11 +86,11 @@
                     this.orderDesc = 0;
                 }
 
-                this.loadCountries()
+                this.loadCountries(this.orderDesc)
             }
         },
         mounted() {
-            this.loadCountries();
+            this.loadCountries(this.orderDesc);
         }
     }
 </script>

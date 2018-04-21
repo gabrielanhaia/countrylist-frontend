@@ -20,7 +20,7 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                    aria-haspopup="true" aria-expanded="false">Opções <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Gerar CSV</a></li>
+                                    <li><a v-on:click="generateCsvCountries" href="">Gerar CSV</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -87,6 +87,10 @@
                 }
 
                 this.loadCountries(this.orderDesc)
+            },
+            generateCsvCountries()
+            {
+                alert('test')
             }
         },
         mounted() {

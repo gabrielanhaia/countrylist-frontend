@@ -65,12 +65,15 @@
         methods: {
             loadCountries(orderDesc) {
                 axios.get(
-                    'http://localhost:8000/api/country?order_descending=' + orderDesc,
+                    'http://localhost:8000/api/country',
                     {
                         headers: {
                             'Access-Control-Allow-Origin': '*',
                             'Accept': 'application/json',
                             'Content-Type': 'application/json',
+                        },
+                        params: {
+                            order_descending: orderDesc
                         }
                     }
                 ).then((response) => {

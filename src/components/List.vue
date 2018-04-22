@@ -38,8 +38,6 @@
 
 
 <script>
-
-
     import axios from 'axios'
 
     export default {
@@ -47,13 +45,13 @@
         data() {
             return {
                 countries: [],
-                orderDesc: 0
+                orderDesc: 0,
             }
         },
         methods: {
             loadCountries(orderDesc) {
                 axios.get(
-                    'http://localhost:8000/api/country',
+                    'http://paises-server.mestredev.com.br/api/country',
                     {
                         headers: {
                             'Access-Control-Allow-Origin': '*',

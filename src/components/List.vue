@@ -51,7 +51,7 @@
         methods: {
             loadCountries(orderDesc) {
                 axios.get(
-                    'http://paises-server.mestredev.com.br/api/country',
+                    'www.paises-server.mestredev.com.br/api/country',
                     {
                         headers: {
                             'Access-Control-Allow-Origin': '*',

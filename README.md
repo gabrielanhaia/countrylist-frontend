@@ -8,6 +8,9 @@
 # install dependencies
 npm install
 
+# Change url API
+Change in axios call the url (http://paises-server.mestredev.com.br/api/country)
+
 # serve with hot reload at localhost:8080
 npm run dev
 
